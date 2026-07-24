@@ -1,10 +1,10 @@
-# 🤖 Manual de Montagem e Modelagem: Otto Rolo Compressor
+#  Manual de Montagem e Modelagem: Otto Rolo Compressor
 
 Este guia detalha o processo de montagem mecânica, eletrônica e a manipulação dos arquivos digitais no Autodesk Fusion 360 para a construção da variante do robô Otto com tração por rodas/esteiras e rolo compressor frontal.
 
 ---
 
-## 📐 Etapa 1: Visualização e Projeto no Autodesk Fusion 360
+##  Etapa 1: Visualização e Projeto no Autodesk Fusion 360
 
 Como os componentes estruturais deste robô não foram impressos em 3D de forma convencional, o modelo digital serve como gabarito exato para estudo físico, medições e adaptações em outros materiais (como MDF, acrílico ou papelão paraná).
 
@@ -20,7 +20,7 @@ Como os componentes estruturais deste robô não foram impressos em 3D de forma 
 
 ---
 
-## 🛠️ Etapa 2: Preparação dos Componentes Físicos
+##  Etapa 2: Preparação dos Componentes Físicos
 
 Antes de iniciar a montagem estrutural, separe todos os itens técnicos necessários:
 
@@ -33,7 +33,7 @@ Antes de iniciar a montagem estrutural, separe todos os itens técnicos necessá
 
 ---
 
-## ⚙️ Etapa 3: Montagem Mecânica
+##  Etapa 3: Montagem Mecânica
 
 Siga a sequência abaixo utilizando o modelo tridimensional do Fusion 360 como referência visual de posicionamento:
 
@@ -45,7 +45,7 @@ Siga a sequência abaixo utilizando o modelo tridimensional do Fusion 360 como r
 
 ---
 
-## ⚡ Etapa 4: Conexões Eletrônicas
+##  Etapa 4: Conexões Eletrônicas
 
 Realize o mapeamento elétrico dos cabos utilizando o guia de pinagem abaixo:
 
@@ -73,7 +73,7 @@ Realize o mapeamento elétrico dos cabos utilizando o guia de pinagem abaixo:
 
 ---
 
-## 🔋 Etapa 5: Sistema de Alimentação e Energia
+##  Etapa 5: Sistema de Alimentação e Energia
 
 Siga este esquema para evitar quedas de conexão ou reinicializações do Arduino:
 
@@ -84,7 +84,7 @@ Siga este esquema para evitar quedas de conexão ou reinicializações do Arduin
 
 ---
 
-## 💻 Etapa 6: Programação e Testes
+##  Etapa 6: Programação e Testes
 
 Finalize o projeto carregando o firmware no microcontrolador:
 
