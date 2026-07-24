@@ -1,82 +1,96 @@
-# 🤖 MANUAL DE MONTAGEM: OTTO ROLO COMPRESSOR
+# 🤖 Manual de Montagem e Modelagem: Otto Rolo Compressor
 
-# ESTE GUIA PASSO A PASSO FOI DESENVOLVIDO PARA ORIENTAR VOCÊ NA MONTAGEM COMPLETA DA VARIANTE DO ROBÔ OTTO COM SINAL DE TRAÇÃO POR RODAS/ESTEIRAS E UM ROLO COMPRESSOR FRONTAL ATIVO.
-
----
-
-## 🛠️ ETAPA 1: PREPARAÇÃO DOS COMPONENTES
-
-# ANTES DE COMEÇAR, SEPARE OS SEGUINTES ITENS ESSENCIAIS PARA A CONSTRUÇÃO:
-
-# • CHASSI IMPRESSO EM 3D (CORPO, CABEÇA E ROLO FRONTAL)
-# • 02 MOTORES DC AMARELOS (COM CAIXA DE REDUÇÃO)
-# • 01 PONTE H L298N (DRIVER DE MOTOR)
-# • 01 PLACA ARDUINO NANO (COM SHIELD DE EXPANSÃO)
-# • 01 SENSOR ULTRASSÔNICO HC-SR04
-# • 01 MÓDULO BLUETOOTH HC-05
-# • 01 BATERIA LIPO 7.4V OU 02 BATERIAS 18650
-# • JUMPERS (FIOS) DO TIPO MACHO-FÊMEA E FÊMEA-FÊMEA
+Este guia detalha o processo de montagem mecânica, eletrônica e a manipulação dos arquivos digitais no Autodesk Fusion 360 para a construção da variante do robô Otto com tração por rodas/esteiras e rolo compressor frontal.
 
 ---
 
-## ⚙️ ETAPA 2: MONTAGEM MECÂNICA (CHASSI E MOTORES)
+## 📐 Etapa 1: Visualização e Projeto no Autodesk Fusion 360
 
-# SIGA ESTA SEQUÊNCIA PARA MONTAR A ESTRUTURA FÍSICA DO ROBÔ:
+Como os componentes estruturais deste robô não foram impressos em 3D de forma convencional, o modelo digital serve como gabarito exato para estudo físico, medições e adaptações em outros materiais (como MDF, acrílico ou papelão paraná).
 
-# 1. ENCAIXE OS DOIS MOTORES DC NAS CAVIDADES LATERAIS DO CHASSI INFERIOR.
-# 2. FIXE OS MOTORES UTILIZANDO OS PARAFUSOS LONGOS QUE ACOMPANHAM O KIT.
-# 3. PRESSIONE AS RODAS LATERAIS DIRETAMENTE NOS EIXOS DOS MOTORES DC.
-# 4. FIXE O SUPORTE DO ROLO COMPRESSOR NA PARTE FRONTAL DO CHASSI.
-# 5. ENCAIXE O ROLO COMPRESSOR NO SUPORTE FRONTAL, GARANTINDO QUE ELE GIRE LIVREMENTE.
-# 6. ENCAIXE O SENSOR ULTRASSÔNICO NOS DOIS OLHOS DA CABEÇA DO OTTO.
+### Como abrir e explorar o projeto:
+1. **Instalação:** Baixe e instale o software [Autodesk Fusion 360](https://autodesk.com) (gratuito para estudantes e hobbistas).
+2. **Importação:** No painel lateral de dados (*Data Panel*), clique em **Upload** e selecione o arquivo do robô (formatos `.f3d` ou `.step` localizados na pasta `3D_Models/`).
+3. **Navegação (Órbita):** Utilize a ferramenta **Orbit** (atalho: segure a tecla `Shift` + botão do meio do mouse) para girar o robô em 360° e entender como o rolo compressor se encaixa no chassi inferior.
 
----
-
-## ⚡ ETAPA 3: CONEXÕES ELETRÔNICAS E MAPEAMENTO
-
-# FAÇA AS LIGAÇÕES ELÉTRICAS EXATAMENTE COMO DESCRITO ABAIXO:
-
-### 🔌 CONEXÃO DOS MOTORES NA PONTE H L298N
-# • CONECTE OS DOIS FIOS DO MOTOR ESQUERDO NAS SAÍDAS OUT1 E OUT2.
-# • CONECTE OS DOIS FIOS DO MOTOR DIREITO NAS SAÍDAS OUT3 E OUT4.
-
-### 🔌 CONEXÃO DA PONTE H NO ARDUINO NANO
-# • IN1 (CONTROLE DO MOTOR) -> CONECTAR NO PINO D2
-# • IN2 (CONTROLE DO MOTOR) -> CONECTAR NO PINO D3
-# • IN3 (CONTROLE DO MOTOR) -> CONECTAR NO PINO D4
-# • IN4 (CONTROLE DO MOTOR) -> CONECTAR NO PINO D5
-
-### 🔌 CONEXÃO DO SENSOR ULTRASSÔNICO (OLHOS)
-# • VCC -> CONECTAR NO PINO 5V DO ARDUINO
-# • TRIGGER -> CONECTAR NO PINO DIGITAL D8
-# • ECHO -> CONECTAR NO PINO DIGITAL D9
-# • GND -> CONECTAR NO PINO GND DO ARDUINO
-
-### 🔌 CONEXÃO DO MÓDULO BLUETOOTH HC-05
-# • VCC -> CONECTAR NO PINO 5V DO ARDUINO
-# • GND -> CONECTAR NO PINO GND DO ARDUINO
-# • TXD -> CONECTAR NO PINO DIGITAL D11 (RX DO ARDUINO VIA SOFTWARE)
-# • RXD -> CONECTAR NO PINO DIGITAL D12 (TX DO ARDUINO VIA SOFTWARE)
+### Medição para Fabricação Manual:
+* Ative a ferramenta **Measure** (atalho: tecla `I`) no Fusion 360.
+* Clique nas arestas, faces ou diâmetros do chassi e do rolo compressor.
+* Anote as dimensões em milímetros (mm) para recortar ou adaptar os blocos de materiais físicos que substituirão a impressão 3D.
 
 ---
 
-## 🔋 ETAPA 4: SISTEMA DE ALIMENTAÇÃO (ENERGIA)
+## 🛠️ Etapa 2: Preparação dos Componentes Físicos
 
-# A CORRETA ALIMENTAÇÃO EVITA CONFLITOS E DESCONEXÕES DO SISTEMA:
+Antes de iniciar a montagem estrutural, separe todos os itens técnicos necessários:
 
-# 1. CONECTE O FIO POSITIVO (+) DA BATERIA NO BORDE DE 12V DA PONTE H L298N.
-# 2. CONECTE O FIO NEGATIVO (-) DA BATERIA NO BORDE GND DA PONTE H.
-# 3. PUXE UM FIO JUMPER DO GND DA PONTE H PARA O PIN GND DO ARDUINO.
-# 4. PUXE UM FIO JUMPER DA SAÍDA 5V DA PONTE H PARA O PINO VIN OU 5V DO ARDUINO.
+* **Peças Estruturais:** Chassi inferior, cabeça do Otto e o conjunto do rolo compressor (projetados no Fusion 360).
+* **Motores:** 2x Motores DC amarelos (com caixa de redução) e rodas de alta aderência.
+* **Driver de Potência:** 1x Ponte H L298N (para o controle de velocidade e sentido dos motores).
+* **Cérebro do Robô:** 1x Arduino Nano (acompanhado de seu Shield de expansão I/O).
+* **Sensores e Comunicação:** 1x Sensor ultrassônico HC-SR04 e 1x Módulo Bluetooth HC-05.
+* **Energia:** 1x Bateria LiPo 7.4V (ou duas células 18650) e cabos jumpers do tipo macho-fêmea.
 
 ---
 
-## 💻 ETAPA 5: PROGRAMAÇÃO E TESTE FINAL
+## ⚙️ Etapa 3: Montagem Mecânica
 
-# AGORA REALIZE O CARREGAMENTO DO CÓDIGO FONTE:
+Siga a sequência abaixo utilizando o modelo tridimensional do Fusion 360 como referência visual de posicionamento:
 
-# 1. CONECTE O ARDUINO NANO AO SEU COMPUTADOR USANDO O CABO USB.
-# 2. ABRA A ARDUINO IDE E COLE O CÓDIGO DE CONTROLE OU DESVIO DE OBSTÁCULOS.
-# 3. SELECIONE A PLACA "ARDUINO NANO" NAS CONFIGURAÇÕES DE FERRAMENTAS.
-# 4. CLIQUE NO BOTÃO SETA (UPLOAD) PARA ENVIAR O CÓDIGO AO ROBÔ.
-# 5. RETIRE O CABO USB, LIGUE A CHAVE DA BATERIA E COLOQUE O ROBÔ NO CHÃO PARA TESTAR.
+1. **Instalação dos Motores:** Posicione os dois motores DC amarelos nas cavidades laterais internas da base do chassi.
+2. **Fixação Mecânica:** Utilize parafusos longos ou abraçadeiras plásticas de nylon para prender os motores firmemente à estrutura.
+3. **Rodas:** Encaixe as rodas laterais sob pressão diretamente nos eixos dos motores DC.
+4. **Mecanismo Frontal:** Alinhe o braço de suporte frontal e passe um eixo centralizado pelo rolo compressor para que ele gire livremente.
+5. **Olhos do Robô:** Fixe o sensor ultrassônico HC-SR04 nos vãos circulares localizados na parte frontal da cabeça do robô.
+
+---
+
+## ⚡ Etapa 4: Conexões Eletrônicas
+
+Realize o mapeamento elétrico dos cabos utilizando o guia de pinagem abaixo:
+
+### Conexão dos Motores na Ponte H L298N
+* **Motor Esquerdo:** Conecte os dois fios diretamente nos bornes de parafuso **OUT1** e **OUT2**.
+* **Motor Direito:** Conecte os dois fios diretamente nos bornes de parafuso **OUT3** e **OUT4**.
+
+### Conexão de Controle (Ponte H ao Arduino)
+* **Pino IN1:** Conectar no pino digital **D2** do Arduino.
+* **Pino IN2:** Conectar no pino digital **D3** do Arduino.
+* **Pino IN3:** Conectar no pino digital **D4** do Arduino.
+* **Pino IN4:** Conectar no pino digital **D5** do Arduino.
+
+### Conexão do Sensor Ultrassônico (Olhos)
+* **VCC:** Conectar no pino **5V** do Shield do Arduino.
+* **Trigger:** Conectar no pino digital **D8** do Arduino.
+* **Echo:** Conectar no pino digital **D9** do Arduino.
+* **GND:** Conectar no pino **GND** do Shield do Arduino.
+
+### Conexão do Módulo Bluetooth HC-05
+* **VCC:** Conectar no pino **5V** do Arduino.
+* **GND:** Conectar no pino **GND** do Arduino.
+* **TXD:** Conectar no pino digital **D11** (Configurado como RX por software).
+* **RXD:** Conectar no pino digital **D12** (Configurado como TX por software).
+
+---
+
+## 🔋 Etapa 5: Sistema de Alimentação e Energia
+
+Siga este esquema para evitar quedas de conexão ou reinicializações do Arduino:
+
+1. Conecte o cabo positivo (Vermelho) da bateria no borne marcado como **12V** da Ponte H L298N.
+2. Conecte o cabo negativo (Preto) da bateria no borne marcado como **GND** da Ponte H.
+3. Puxe um fio jumper do terminal **GND** da Ponte H para qualquer pino **GND** do Arduino (Aterramento unificado).
+4. Puxe um fio jumper da saída regulada **5V** da Ponte H para o pino **VIN** ou **5V** do Arduino para alimentá-lo.
+
+---
+
+## 💻 Etapa 6: Programação e Testes
+
+Finalize o projeto carregando o firmware no microcontrolador:
+
+1. Conecte o cabo USB no Arduino Nano e plugue-o no computador.
+2. Abra o código do robô na **Arduino IDE**.
+3. Em *Ferramentas > Placa*, selecione **Arduino Nano** (Se necessário, mude o processador para *ATmega328P Old Bootloader*).
+4. Selecione a **Porta COM** correta correspondente ao seu dispositivo.
+5. Clique no botão de **Carregar (Seta para a direita)** e aguarde a mensagem de conclusão.
+6. Desconecte o USB, ative a chave da bateria e coloque o robô em uma área aberta para testar.
